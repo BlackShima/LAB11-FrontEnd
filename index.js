@@ -32,6 +32,9 @@ app.get('/students', (req, res) => {
 // Add a new student
 app.post('/students', (req, res) => {
     const { name, age, grade } = req.body;
+    if (age < 18 || age > 30 || grade < 0 || grade > 100) {
+        return res.status(400).send("Invalid input: Age must be 18-30 and Grade 0-100");
+    }
     const query = 'INSERT INTO students (name, age, grade) VALUES (?, ?, ?)';
     db.query(query, [name, age, grade], (err, result) => {
         if (err) {

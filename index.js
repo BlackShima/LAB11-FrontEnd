@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('./Lab11_Resource/db');
+const db = require('./Q1/db');
 const cors = require('cors');
 const app = express();
 
@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.use(express.static('public'));  // Serve static files
+app.use(express.static('Lab11_Resource/public'));  // Serve static files
 
 
 
